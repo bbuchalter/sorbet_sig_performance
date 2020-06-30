@@ -1,0 +1,22 @@
+GIT
+  remote: https://github.com/sorbet/sorbet.git
+  revision: 1821c3fa32e7204b0369bc19d025d53d469f913e
+  branch: master
+  glob: gems/**/*.gemspec
+  specs:
+    sorbet-runtime (0.0.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    benchmark-ips (2.8.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  benchmark-ips
+  sorbet-runtime!
+
+BUNDLED WITH
+   2.1.4
