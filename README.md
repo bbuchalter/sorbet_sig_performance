@@ -1,8 +1,8 @@
 # sorbet_sig_performance
 
-<h2>Context:</h2>
+<h2>Context</h2>
 
-We noticed significant hits to the performance of the CMS build after merging [this commit](https://github.com/Gusto/payroll_reference_data_cms/pull/499/commits/2185d6ead3d5c7d9b51f68f53c3aa95bdadb871b),
+We noticed significant hits to the performance of the CMS build ([~7min](https://buildkite.com/gusto/payroll-reference-data-cms/builds/3075) to [~10 min](https://buildkite.com/gusto/payroll-reference-data-cms/builds/3145)) after merging [this commit](https://github.com/Gusto/payroll_reference_data_cms/pull/499/commits/2185d6ead3d5c7d9b51f68f53c3aa95bdadb871b),
 which introduced Sorbet's runtime type checking signatures on some large hashes in the overrides file. To give an idea of the sizes of the hashes:
 
 ```
@@ -37,9 +37,9 @@ For a `Hash[String, String]`:
 
 | # of keys  |  Avg Method Calls/5 seconds (with sig) | Avg Method calls/5 seconds (sig never checked)  | Order of Magnitude of diff  |   |
 |---|---|---|---|---|
-| 5  | 454,777  |  2,308,000 | 1 |
-|  50 | 643,000  | 86,662,000  |  2 |
-|  5000 | 7,020  |  96,780,000 | 4  |
+| 5  | 454,777  |  2,308,000 | 1|
+|  50 | 643,000  | 86,662,000  |  2| 
+|  5000 | 7,020  |  96,780,000 | 4| 
 
 
 Here's the raw output observed when running [benchmarking tests](https://github.com/bbuchalter/sorbet_sig_performance/blob/master/sorbet_test.rb) on the different sized hashes described above: 
