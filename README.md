@@ -35,11 +35,11 @@ When large hashes are fetched and type-checked at runtime, Sorbet has to run che
 We have observed a linear degradation in performance when comparing the time it takes to read a hash with a sig vs. a hash with `.checked(:never)` ([doesn't run runtime checks](https://sorbet.org/docs/runtime#checked-whether-to-check-in-the-first-place)) specified.
 For a `Hash[String, String]`:
 
-| # of keys  |  Avg Method Calls/5 seconds (with sig) | Avg Method calls/5 seconds (sig never checked)  | Order of Magnitude of diff  |   |
-|---|---|---|---|---|
-| 5  | 454,777  |  2,308,000 | 1|
-|  50 | 643,000  | 86,662,000  |  2| 
-|  5000 | 7,020  |  96,780,000 | 4| 
+| # of keys  |  Avg Method Calls/5 seconds (with sig) | Avg Method calls/5 seconds (sig never checked)  | Order of Magnitude of diff  |
+|---|---|---|---|
+| 5  | 2,30,800  |  96,780,000 | 2|
+|  50 | 643,000  | 86,662,000  |  3| 
+|  5000 | 7,020  |  98,159,000 | 4| 
 
 
 Here's the raw output observed when running [benchmarking tests](https://github.com/bbuchalter/sorbet_sig_performance/blob/master/sorbet_test.rb) on the different sized hashes described above: 
