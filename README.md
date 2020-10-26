@@ -1,5 +1,8 @@
 # sorbet_sig_performance
 
+<h2>Update: This has been fixed!</h2>
+https://github.com/sorbet/sorbet/pull/3233
+
 <h2>Context</h2>
 
 We noticed significant hits to the performance of the CMS build ([~7min](https://buildkite.com/gusto/payroll-reference-data-cms/builds/3075) to [~10 min](https://buildkite.com/gusto/payroll-reference-data-cms/builds/3145)) after merging [this commit](https://github.com/Gusto/payroll_reference_data_cms/pull/499/commits/2185d6ead3d5c7d9b51f68f53c3aa95bdadb871b),
